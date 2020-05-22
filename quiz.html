@@ -1,0 +1,268 @@
+<html>
+
+               <head>
+
+                              <title>quiz</title>
+
+                              <style>
+*{
+
+               margin:10px;
+
+}
+
+h1{
+
+text-align:center;
+
+color:#ff3300;
+
+font-size:70px;
+
+padding:5px;
+
+}
+
+body{
+
+background-image:url('js.jpg');
+
+background-size:cover;
+
+height:100vh;
+
+width:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+#content{
+
+               background:linear-gradient(to right,orange,yellow);
+
+               max-width:700px;
+
+               border-radius:10px;
+
+}             
+
+#status{
+
+font-size:40px;
+
+padding:10px;
+
+text-align:center;
+
+}
+
+#board h3{
+
+font-size:50px;
+
+color:crimson;
+
+}
+
+#board h4{
+
+font-size:20px;
+
+color:indigo;
+
+padding:10px;
+
+}
+
+#board label{
+
+font-size:20px;
+
+color:black;
+
+padding:20px;
+
+}
+
+button{
+
+padding:20px;
+
+border:2px;
+
+color:black;
+}
+
+button:hover{
+
+background-color:green;
+
+}
+
+ 
+	</style>
+
+               </head>
+
+               <meta name="viewport" content="width:device-width,initial-scale=1.0">
+
+               <body>
+
+                              <div id="content">
+
+                                             <h1>JavaScript Quiz</h1>
+
+                                             <h2 id="status"></h2>
+
+                                             <div id="board">
+
+                                             </div>
+
+                              </div>
+
+                              <script>
+
+                              var pos=0,board,qus,choices,A,B,C,cor=0;
+
+                              var questions=[
+
+                                             ["Which of the following is not a reserved word in JavaScript?","interface","throws","program","C"],
+
+                                             ["Which of the following type of variable is visible only within a function where it is defined?","global variable","local variable","None of the above","B"],
+
+                                             ["Inside which HTML element do we put the JavaScript?","js","script","javascript","B"],
+
+                                             ["JavaScript is ______ Side Scripting Language","server","browser","ISP","B"],
+
+                                             ["Which of the following is not a valid JavaScript variable name?","2names","_first_and_last_names","FirstAndLast","A"],
+
+                                             ["Which of the following attribute can hold the JavaScript version?","LANGUAGE","SCRIPT","VERSION","A"],
+
+                                             ["What does the noscript tag do?","Enclose text to be displayed by non-JavaScript browsers","Prevents scripts on the page from executing","Describes certain low-budget movies","A"],
+
+                                             ["Which of the following best describes JavaScript","a scripting language precompiled in the browser","a compiled scripting language","an object-oriented scripting language","C"],
+
+                                             ["JavaScript is interpreted by","Client","Server","Object","A"],
+
+                                             ["Statement used to test for a specific condition","Select","If","Switch","B"]
+
+                              ];
+
+                              function DisplayQuestion()
+
+                              {
+
+                                             board=document.getElementById("board");
+
+                                             if(pos>=questions.length)
+
+                                             {
+
+                                                            board.innerHTML="<h2>You got "+cor+" of "+questions.length+"</h2>"
+
+                                                            if (cor==questions.length)
+
+                                                            {
+
+                                                                           board.innerHTML="<h3>CONGRATULATIONS!</h3>"
+
+                                                            }
+
+                                                            document.getElementById("status").innerHTML="Quiz completed!";
+
+                                                            pos=0;
+
+                                                            cor=0;
+
+                                                            return false;
+
+                                             }
+
+                                             document.getElementById("status").innerHTML="Question"+" "+(pos+1)+" "+"of"+" "+questions.length;
+
+                                             qus=questions[pos][0];
+
+                                             A=questions[pos][1];
+
+                                             B=questions[pos][2];
+
+                                             C=questions[pos][3];
+
+                                             board.innerHTML="<h4>"+qus+"</h4>";
+
+                                             board.innerHTML+="<label><input type='radio' name='choices' value='A' required>"+A+"<br></label>";
+
+                                             board.innerHTML+="<label><input type='radio' name='choices' value='B' required>"+B+"<br></label>";
+
+                                             board.innerHTML+="<label><input type='radio' name='choices' value='C' required>"+C+"<br></label>";
+
+                                             board.innerHTML+="<button onclick='CheckAnswer()'>Submit</button>";       
+
+                              }
+
+                              function CheckAnswer()
+
+                              {
+
+                                             var choice;
+
+                                             choices=document.getElementsByName("choices");
+
+                                             for(var i=0;i<choices.length;i++)
+
+                                             {
+
+                                                            if(choices[i].checked)
+
+                                                            {
+
+                                                                           choice=choices[i].value;
+
+                                                            }
+
+                                             }
+
+                                             if(choice==questions[pos][4])
+
+                                             {
+
+                                                            cor++;
+
+                                             }
+
+                                             pos++;
+
+                                             DisplayQuestion();
+
+                              }
+
+                              </script>
+
+                              <script>
+
+                                             DisplayQuestion();
+
+                              </script>
+
+               </body>
+
+</html>
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+ 

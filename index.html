@@ -1,0 +1,200 @@
+<html>
+<title>merrygamingzone</title>
+<head>
+<style>
+*{
+font-family:Showcard Gothic;
+background-color:black;
+}
+.logo{
+width:15%;
+float:left;
+}
+.logo img{
+height:15%;
+}
+
+.head{
+width:75%;
+color:#ff3300;
+font-size:30px;
+overlapp:none;
+float:right;
+}
+h4{
+animation-name:text;
+animation-duration:4s;
+animation-iteration-count:infinite;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@keyframes text {
+  0%   {color: red;}
+  25%  {color: orange;}
+  50%  {color: yellow;}
+  100% {color: #ffff33;}
+}
+.form{
+width:300px;
+height:490px;
+background-color:#ff33000.5;
+position:relative;
+margin:6% auto;
+overflow:hidden;
+padding:5px;
+}
+.button{
+padding:2px;
+width:220px;
+height:40px;
+border-radius:30px;
+box-shadow:0 0 20px 9px #ff3300;
+background-color:linear-gradient(red,pink);
+margin:35px;
+position:relative;
+
+}
+.buttontype{
+padding:10px 25px;
+border:0;
+outline:none;
+background:transparent;
+cursor:pointer;
+color:#ff3300;
+position:relative;
+}
+#but{
+top:0;
+left:0;
+position:absolute;
+border-radius:30px;
+transition: .5s;
+width:115px;
+height:100%;
+background:linear-gradient(to right,orange,yellow);
+}
+.social{
+margin:30 px;
+text-align:center;
+cursor:pointer;
+}
+.social img{
+width:30px;
+margin:0 12px;
+curser:pointer;
+border-radius:5px;
+}
+.inputgroup{
+top:200px;
+position:absolute;
+width:250px;
+transition: .5s;
+}
+.inputfield{
+width:100%;
+padding:10px 0;
+margin: 5px 0;
+border-left:0;
+borde-top:0;
+border-right:0;
+border-bottom: 1px solid #ff3300;
+outline:none;
+background:transparent;
+color:white;
+}
+.login-button{
+width:85%;
+padding:10px 30px;
+cursor:pointer;
+display:block;
+margin:auto;
+background:linear-gradient(to right,orange,yellow);
+border:0;
+outline:none;
+border-radius:30px;}
+#login{
+left:30px;
+}
+#register{
+left:450px;
+}
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="logo">
+		<img src="logo.jpg"></img>
+	</div>
+	<div class="head">
+		<h4>MerryGamingZone</h4>
+	</div>
+</div>
+<div class="form">
+	<div class="button">
+		<div id="but"></div>
+		<button class="buttontype" onclick="login()">LOGIN</button>
+		<button class="buttontype" onclick="register()">REGISTER</button>
+	</div>
+	<div class="social">
+		<img src="fb.jpg">
+		<img src="tw.jpg">	
+		<img src="in.jpg">
+	</div>
+	<form id="login" class="inputgroup" method="post">
+	<input type="text" class="inputfield"  id="lusername" placeholder="user ID" required>
+	<input type="password" class="inputfield" id="lpassword" placeholder="password" required>
+	<button type="button" class="login-button" onclick="loginvalidate()">LOGIN</button>
+	</form>
+	<form id="register" class="inputgroup" method="post">
+	<input type="text" class="inputfield" id="rusername" placeholder="user ID" required>
+	<input type="email" class="inputfield" placeholder="email ID" >
+	<input type="password" class="inputfield" id="rpassword" placeholder="password" required>
+	<button type="button" class="login-button" onclick="regvalidate()">REGISTER</button>
+	</form>
+</div>
+<script>
+var x=document.getElementById("login");
+var y=document.getElementById("register");
+var z=document.getElementById("but");
+
+function register(){
+x.style.left="-400px";
+y.style.left="50px";
+z.style.left="110px";
+}
+
+function login(){
+x.style.left="50px";
+y.style.left="450px";
+z.style.left="0px";
+}
+
+function loginvalidate(){
+x=0;
+y=0;
+lname=document.getElementById("lusername").value;
+lpass=document.getElementById("lpassword").value;
+x=lname.localeCompare(rname);
+y=lpass.localeCompare(rpass);
+if(x==0 && y==0){
+alert("login success");
+window.location.href = "home.html";
+return false;
+}
+else{alert("login failed");}}
+
+function regvalidate(){
+rname=document.getElementById("rusername").value;
+rpass=document.getElementById("rpassword").value;
+alert(rname);
+alert(rpass);
+}
+
+
+
+</script>
+</body>
+</html>

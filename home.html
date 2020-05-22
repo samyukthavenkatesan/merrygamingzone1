@@ -1,0 +1,135 @@
+<html>
+<title>merrygamingzone</title>
+<head>
+<style>
+*{
+font-family:Showcard Gothic;
+background-color:black;
+}
+.logo{
+width:15%;
+float:left;
+}
+.logo img{
+height:15%;
+}
+
+.head{
+width:75%;
+color:#ff3300;
+font-size:30px;
+overlapp:none;
+float:right;
+}
+h4{
+animation-name:text;
+animation-duration:4s;
+animation-iteration-count:infinite;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@keyframes text {
+  0%   {color: red;}
+  25%  {color: orange;}
+  50%  {color: yellow;}
+  100% {color: #ffff33;}
+}
+.form{
+width:200px;
+height:490px;
+background-color:#ff33000.5;
+position:relative;
+margin:10% auto;
+overflow:hidden;
+padding:5px;
+}
+.button{
+padding:2px;
+width:110px;
+height:120px;
+border-radius:30px;
+box-shadow:0 0 20px 9px #ff3300;
+background-color:linear-gradient(red,pink);
+margin:35px;
+position:relative;
+
+}
+.buttontype{
+padding:10px 25px;
+border:0;
+outline:none;
+background:transparent;
+cursor:pointer;
+color:#ff3300;
+position:relative;
+}
+.buttontype:hover{
+width:111px;
+height:33%;
+border-radius:30px;
+padding:10px 25px;
+border:0;
+outline:none;
+cursor:pointer;
+color:#ff3300;
+background:linear-gradient(to right,orange,yellow);
+position:relative;
+}
+
+.social{
+margin:20 px;
+text-align:center;
+cursor:pointer;
+}
+.social img{
+width:30px;
+margin:0 12px;
+curser:pointer;
+border-radius:5px;
+}
+
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="logo">
+		<img src="logo.jpg"></img>
+	</div>
+	<div class="head">
+		<h4>MerryGamingZone</h4>
+	</div>
+</div>
+<div class="form">
+	<div class="button">
+		<div id="but"></div>
+		<button class="buttontype" onclick="direct()">home</button>
+		 <select name="games" class="buttontype" onclick="games()" id="games">
+ 	 	  <option value="quiz" class="buttontype">quiz</option>
+ 		 <option value="tic-tac-toe" class="buttontype" >tic-tac-toe</option>
+ 		 </select>
+		<button class="buttontype" onclick="contact()">contact</button>
+	</div>
+	<div class="social">
+		<img src="fb.jpg">
+		<img src="tw.jpg">	
+		<img src="in.jpg">
+	</div>
+	
+</div>
+<script>
+function direct(){
+window.location.href="index.html";
+}
+
+function games(){
+y=document.getElementById("games").value;
+a=y.localeCompare("quiz")
+if(a==0){
+window.location.href="quiz.html";}
+}
+</script>
+</body>
+</html>
