@@ -17,6 +17,7 @@ float:left;
 }
 .logo img{
 height:15%;
+float:left;
 }
 
 .head{
@@ -30,6 +31,8 @@ h4{
 animation-name:text;
 animation-duration:4s;
 animation-iteration-count:infinite;
+text-shadow:0 0 20px 9px #ff3300;
+font-family:Cooper;
 }
 .row:after {
   content: "";
@@ -37,10 +40,14 @@ animation-iteration-count:infinite;
   clear: both;
 }
 @keyframes text {
-  0%   {color: red;}
-  25%  {color: orange;}
-  50%  {color: yellow;}
-  100% {color: #ffff33;}
+  0%   {color: red;
+margin-right:20px;}
+  25%  {color: orange;
+margin-left:20px;}
+  50%  {color: yellow;
+margin-right:10px;}
+  100% {color: #ffff33;
+margin-left:10px;}
 }
 .form{
 width:300px;
