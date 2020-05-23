@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>memorygame</title>
+<meta name="viewport" content="width:device-width,initial-scale=1.0">
+<style>
+*{
+font-family:Showcard Gothic;
+background-color:black;
+}
+
+.head{
+width:75%;
+color:#ff3300;
+font-size:30px;
+overlapp:none;
+float:right;
+}
+h4{
+animation-name:text;
+animation-duration:4s;
+animation-iteration-count:infinite;
+text-shadow:2px 2px 10px #ff3300;
+}
+.logo{
+width:15%;
+float:left;
+}
+.logo img{
+width:100%;
+height:auto;
+animation-name:logoa;
+animation-duration:4s;
+animation-iteration-count:infinite;
+transform:rotateX(180deg);
+float:left;
+}
+
+@keyframes logoa{
+0%{transform:rotateX(360deg);}
+10%{transform:rotateX(180deg);}
+50%{transform:rotateX(-180deg);}
+100%{transform:rotateX(180deg);}
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@keyframes text {
+  0%   {color: red;
+margin-right:20px;}
+  25%  {color: orange;
+margin-left:20px;}
+  50%  {color: yellow;
+margin-right:30px;}
+  100% {color: #ffff33;
+margin-left:30px;}
+}
+.board{
+width:390px;
+height:300px;
+margin:6% auto;
+position:relative;
+border-radius:10px;
+box-shadow:0px 0px 20px 9px #ff3300;
+background:linear-gradient(to right,orange,yellow);
+padding:9px;
+opacity:1;
+}
+
+.im{
+border-radius:5px;
+padding:4px;
+width:96px;
+height:120px;
+box-shadow:0px 0px 10px 9px #000000;
+overflow:hidden;
+margin-top:20px;
+margin-bottom:10x;
+margin-right:15px;
+margin-left:15px;
+background:transparent;
+border:2px solid black;
+outline:none;
+border:none;
+
+}
+img{
+max-width:100%;
+max-height:100%;
+opacity:0;
+}
+
+
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="logo">
+		<img src="logo.jpg"></img>
+	</div>
+	<div class="head">
+		<h4>GAMING ZONE</h4>
+	</div>
+</div>
+<div class="board" id="play">
+	<button class="im" id="b1" onclick="show(1)"><img src="queen.jpg" id="s1" class="showing"></button>
+	<button class="im" id="b2" onclick="show(2)"><img src="king.jpg" id="s2" class="showing"></button>
+	<button class="im" id="b3"onclick="show(3)"><img src="jack.jpg" id="s3" class="showing"></button>
+	<button class="im"id="b4"  onclick="show(4)"><img src="jack.jpg" id="s4" class="showing"></button>
+	<button class="im" id="b5" onclick="show(5)"><img src="king.jpg" id="s5" class="showing"></button>
+	<button class="im" id="b1" onclick="show(6)"><img src="queen.jpg" id="s6" class="showing"></button>
+</div>
+
+<script>
+
+c1=0;c2=0;c3=0;a=0;b=0;c=0;ans=0;
+function show(r){
+ x="s"+r;
+document.getElementById(x).onmouseout = function() {mouseOut()};
+document.getElementById(x).style.opacity = "1";
+
+
+function mouseOut() {
+
+document.getElementById(x).style.opacity = "0";
+if(x.localeCompare("s1")==0 ){
+c1+=1;
+if(c1==2){a=2;
+document.getElementById("s1").style.opacity = "1";
+document.getElementById("s6").style.opacity = "1";}
+else if(c1==0 || c1==1){c2=0;c3=0;}
+}
+else if(x.localeCompare("s6")==0){
+c1+=1;
+if(c1==2){a=2;
+document.getElementById("s1").style.opacity = "1";
+document.getElementById("s6").style.opacity = "1";}
+else if(c1==0 || c1==1){c2=0;c3=0;}
+}
+
+else if(x.localeCompare("s2")==0 ){
+c2+=1;
+if(c2==2){b=2;
+document.getElementById("s2").style.opacity = "1";
+document.getElementById("s5").style.opacity = "1";}
+else if(c2==0 || c2==1){c1=0;c3=0;}
+}
+else if(x.localeCompare("s5")==0){
+c2+=1;
+if(c2==2){b=2;
+document.getElementById("s2").style.opacity = "1";
+document.getElementById("s5").style.opacity = "1";}
+else if(c2==0 || c2==1){c1=0;c3=0;}
+}
+
+else if(x.localeCompare("s3")==0 ){
+c3+=1;
+if(c3==2){c=2;
+document.getElementById("s3").style.opacity = "1";
+document.getElementById("s4").style.opacity = "1";}
+else if(c3==0 || c3==1){c2=0;c1=0;}
+}
+else if(x.localeCompare("s4")==0){
+c3+=1;
+if(c3==2){c=2;
+document.getElementById("s3").style.opacity = "1";
+document.getElementById("s4").style.opacity = "1";}
+else if(c3==0 || c3==1){c2=0;c1=0;}
+}
+
+
+ans=a+b+c;
+
+if(ans==6){
+document.getElementById("play").innerHTML= "	CONGRATULATIONS!.........YOU WON!";
+
+}
+
+}
+
+}
+</script>
+</body>
+</html>
