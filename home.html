@@ -66,18 +66,18 @@ overflow:hidden;
 padding:5px;
 }
 .button{
-padding:2px;
+padding:2px 2px;
 width:110px;
-height:120px;
+height:300px;
 border-radius:30px;
 box-shadow:0 0 20px 9px #ff3300;
-background-color:linear-gradient(red,pink);
+background:linear-gradient(black,red);
 margin:35px;
 position:relative;
 
 }
 .buttontype{
-padding:10px 25px;
+padding:25px 25px;
 border:0;
 outline:none;
 background:transparent;
@@ -89,7 +89,7 @@ position:relative;
 width:111px;
 height:33%;
 border-radius:30px;
-padding:10px 25px;
+padding:5px 5px;
 border:0;
 outline:none;
 cursor:pointer;
@@ -125,10 +125,12 @@ border-radius:5px;
 	<div class="button">
 		<div id="but"></div>
 		<button class="buttontype" onclick="direct()">home</button>
-		 <select name="games" class="buttontype" onclick="games()" id="games">
- 	 	  <option value="quiz" class="buttontype">quiz</option>
+		 <select name="games" class="buttontype" id="games">
+		<option value="quiz" class="buttontype" selected>games</button></option>
+ 	 	  <option value="quiz" class="buttontype">quiz</button></option>
  		 <option value="tic-tac-toe" class="buttontype" >tic-tac-toe</option>
- 		 </select>
+		 </select>
+		<button class="buttontype" onclick="games()">go to game</button>
 		<button class="buttontype" onclick="contact()">contact</button>
 	</div>
 	<div class="social">
