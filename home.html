@@ -124,14 +124,15 @@ border-radius:5px;
 <div class="form">
 	<div class="button">
 		<div id="but"></div>
-		<button class="buttontype" onclick="direct()">home</button>
+		<button class="buttontype" onclick="direct()">Home</button>
 		 <select name="games" class="buttontype" id="games">
-		<option value="quiz" class="buttontype" selected>games</button></option>
- 	 	  <option value="quiz" class="buttontype">quiz game</button></option>
- 		 <option value="memorygame" class="buttontype" >memory game</option>
+		<option value="quiz" class="buttontype" selected>Games</button></option>
+ 	 	  <option value="quiz" class="buttontype">Quiz game</button></option>
+ 		 <option value="memorygame" class="buttontype" >Memory game</option>
+		 <option value="riddle" class="buttontype" >Riddles</option>
 		 </select>
-		<button class="buttontype" onclick="games()">go to game</button>
-		<button class="buttontype" onclick="contact()">contact</button>
+		<button class="buttontype" onclick="games()">Go to game</button>
+		<button class="buttontype" onclick="contact()">Contact</button>
 	</div>
 	<div class="social">
 		<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi-3PP3vcnpAhXr7HMBHflpDmkQFjAAegQIExAC&url=https%3A%2F%2Fwww.facebook.com%2F&usg=AOvVaw2q27ov2cpCynr72DmuSqEz"><img src="fb.jpg"></a>
@@ -153,6 +154,9 @@ window.location.href="quiz.html";}
 
 if(y.localeCompare("memorygame")==0){
 window.location.href="memory.html";}
+	
+if(y.localeCompare("riddle")==0){
+window.location.href="riddle.html";}
 
 }
 </script>
