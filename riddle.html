@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<title>quiz</title>
+<style>
+*{
+margin:10px;
+}
+h1{
+text-align:center;
+color:mediumvioletred;
+font-size:70px;
+padding:5px;
+}
+body{
+background-image:url('rid.jpg');
+background-size:cover;
+height:100vh;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+#content{
+	background:linear-gradient(to right,orange,yellow);
+	box-shadow:0px 0px 9px 10px #ff3300;
+	max-width:700px;
+	border-radius:10px;
+}	
+#status{
+font-size:40px;
+padding:10px;
+text-align:center;
+}
+#board h3{
+font-size:50px;
+color:crimson;
+}
+#board h4{
+font-size:20px;
+color:indigo;
+padding:10px;
+}
+#boarda h4{
+font-size:15px;
+color:indigo;
+padding:5px;
+}
+#board label{
+font-size:20px;
+color:black;
+padding:20px;
+}
+button{
+padding:20px;
+border:2px;
+}
+button:hover{
+background-color:green;
+}
+#answer{
+background:linear-gradient(to right,indigo,black);
+color:white;
+border-radius:9px;
+box-shadow:0 0 9px 6px #yellow;
+border:none;
+outline:none;
+height:50px;
+font-size:23px;
+padding:5px;
+}
+#boarda h3{
+background:linear-gradient(to right,indigo,black);
+color:white;
+border-radius:9px;
+border:none;
+outline:none;
+height:20px;
+font-size:18px;
+padding:2px;
+}
+</style>
+	</head>
+	<meta name="viewport" content="width:device-width,initial-scale=1.0">
+	<body>
+		<div id="content">
+			<h1>Ride with Riddle</h1>
+			<h2 id="status"></h2>
+			<div id="board"></div>
+			<div id="boarda">
+			</div>
+			
+		</div>
+		<script>
+		var pos=0,board,qus,ans,A,cor=0;
+		var questions=[
+			["What has to be broken before you can use it?","egg"],
+			[" What has 13 hearts, but no other organs?","deck of cards"],
+			["What is always in front of you but can’t be seen?","future"],
+			[" What goes up but never comes down?","age"],
+			[" A man who was outside in the rain without an umbrella or hat didn’t get a single hair on his head wet. Why?","he was bald"],
+			["What kind of band never plays music?","rubber band"],
+			[" What begins with an “e” and only contains one letter","envelope"],
+			["What word of five letters has one left when two are removed","stone"],
+			["What is the end of everything?","g"],
+			[" Two in a corner, one in a room, zero in a house, but one in a shelter. What is it?","r"]			
+		];
+		function DisplayQuestion()
+		{
+			board=document.getElementById("board");
+			if(pos>=questions.length)
+			{
+				board.innerHTML="<h2>You got "+cor+" of "+questions.length+"</h2>"
+					
+				if (cor==questions.length)
+				{
+					board.innerHTML="<h3>CONGRATULATIONS!</h3><hr>"
+					
+				}
+				
+					
+				document.getElementById("status").innerHTML="Quiz completed!<hr>answer for the riddles";
+				for(var i=0;i<questions.length;i++)
+				{
+				q=questions[i][0];
+				a=questions[i][1];
+				document.getElementById("boarda").innerHTML+="<h4>"+q+"</h4>"+"<h3>"+a+"</h3>";
+				
+				}
+
+				pos=0;
+				cor=0;
+				return false;
+			}
+			document.getElementById("status").innerHTML="Question"+" "+(pos+1)+" "+"of"+" "+questions.length;
+			qus=questions[pos][0];
+			A=questions[pos][1];
+			board.innerHTML="<h4>"+qus+"</h4>";
+			board.innerHTML+="<label>answer:<input type='text' name='ans' id='answer' required></label>";
+			board.innerHTML+="<button onclick='CheckAnswer()'>Submit</button>";	
+		}
+		function CheckAnswer()
+		{
+			var choice;
+			for(var i=0;i<questions.length;i++)
+			{
+			choice=document.getElementById('answer').value;
+			}
+			if(choice==questions[pos][1])
+			{
+			cor++;
+			}
+			pos++;
+			DisplayQuestion();
+		}
+		</script>
+		<script>
+			DisplayQuestion();
+		</script>
+		</body>
+</html>
+	
+
+
