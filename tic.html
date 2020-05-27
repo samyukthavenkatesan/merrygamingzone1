@@ -1,0 +1,551 @@
+<html>
+<head>
+<title>tic-tac-toe</title>
+<meta name="viewport" content="width:device-width,initial-scale=1.0">
+<style>
+*{
+font-family:Showcard Gothic;
+background-color:black;
+}
+
+.head{
+width:75%;
+color:#ff3300;
+font-size:30px;
+overlapp:none;
+float:right;
+}
+h4{
+animation-name:text;
+animation-duration:4s;
+animation-iteration-count:infinite;
+text-shadow:2px 2px 10px #ff3300;
+}
+.logo{
+width:15%;
+float:left;
+}
+.logo img{
+width:100%;
+height:auto;
+animation-name:logoa;
+animation-duration:4s;
+animation-iteration-count:infinite;
+transform:rotateX(180deg);
+float:left;
+}
+
+@keyframes logoa{
+0%{transform:rotateX(360deg);}
+10%{transform:rotateX(180deg);}
+50%{transform:rotateX(-180deg);}
+100%{transform:rotateX(180deg);}
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@keyframes text {
+  0%   {color: red;
+margin-right:20px;}
+  25%  {color: orange;
+margin-left:20px;}
+  50%  {color: yellow;
+margin-right:30px;}
+  100% {color: #ffff33;
+margin-left:30px;}
+}
+.board{
+width:400px;
+height:400px;
+margin:6% auto;
+position:relative;
+border-radius:10px;
+box-shadow:0px 0px 20px 9px #ff3300;
+background:black;
+padding:9px;
+overflow:hidden;
+}
+
+.im{
+border-radius:1px;
+width:90px;
+height:90px;
+box-shadow:0px 0px 5px 5px yellow;
+overflow:hidden;
+margin-top:20px;
+margin-bottom:20px;
+margin-right:20px;
+margin-left:20px;
+background:transparent;
+outline:none;
+border:none;
+overflow:hidden;
+position:relative;
+
+}
+img{
+max-width:100%;
+max-height:50%;
+}
+#play h4{
+color:indigi;
+}
+#id{
+overflow:hidden;}
+
+
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="logo">
+		<img src="logo.jpg"></img>
+	</div>
+	<div class="head">
+		<h4>TIC-TAC-TOE</h4>
+	</div>
+</div>
+<div class="info">u=you play : X</div>
+<div class="board" id="play">
+	<button class="im" id="b1" onclick="show(1)"><img src="" id="s1" class="showing"></button>
+	<button class="im" id="b2" onclick="show(2)"><img src="" id="s2" class="showing"></button>
+	<button class="im" id="b3"onclick="show(3)"><img src="" id="s3" class="showing"></button>
+	<button class="im"id="b4"  onclick="show(4)"><img src="" id="s4" class="showing"></button>
+	<button class="im" id="b5" onclick="show(5)"><img src="" id="s5" class="showing"></button>
+	<button class="im" id="b6" onclick="show(6)"><img src="" id="s6" class="showing"></button>
+	<button class="im" id="b7" onclick="show(7)"><img src="" id="s7" class="showing"></button>
+	<button class="im" id="b8" onclick="show(8)"><img src="" id="s8" class="showing"></button>
+	<button class="im" id="b9" onclick="show(9)"><img src="" id="s9" class="showing"></button>
+	
+</div>
+<script>
+i=1;
+check=[];
+checkx=[];
+checko=[];
+a=[6];
+w=0;
+wu=0;
+z=1;
+dr=0;
+
+function show(a)
+{
+x="s"+a;
+
+
+	if(a==1 && check.indexOf("s1")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+	
+	else if(a==2 && check.indexOf("s2")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==3 && check.indexOf("s3")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==4 && check.indexOf("s4")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==5 && check.indexOf("s5")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==6 && check.indexOf("s6")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==7 && check.indexOf("s7")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==8 && check.indexOf("s8")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+
+	else if(a==9 && check.indexOf("s9")==-1){
+	document.getElementById(x).src="x.jpeg";
+	
+	}
+check[a]=x;
+checkx[a]=x;
+disp(a);
+function disp(a){
+w=0;
+wu=0;
+z=1;
+dr=dr+1;
+a1=checko.indexOf("s1");
+a2=checko.indexOf("s2");
+a3=checko.indexOf("s3");
+a4=checko.indexOf("s4");
+a5=checko.indexOf("s5");
+a6=checko.indexOf("s6");
+a7=checko.indexOf("s7");
+a8=checko.indexOf("s8");
+a9=checko.indexOf("s9");
+
+b1=checkx.indexOf("s1");
+b2=checkx.indexOf("s2");
+b3=checkx.indexOf("s3");
+b4=checkx.indexOf("s4");
+b5=checkx.indexOf("s5");
+b6=checkx.indexOf("s6");
+b7=checkx.indexOf("s7");
+b8=checkx.indexOf("s8");
+b9=checkx.indexOf("s9");
+
+if(checko.length==0){
+if(check.indexOf("s5")==-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+else{
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;
+}}
+
+else if(a1!=-1 && a2!=-1 && (a3==-1 && b3==-1)){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if((a1==-1 && b1==-1) && a2!=-1 && a3!=-1){
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(a1!=-1 && (a2==-1 && b2==-1) && a3!=-1){
+document.getElementById("s2").src="o.jpeg";
+check[2]="s2";
+checko[2]="s2";z=0;}
+
+else if(a4!=-1 && a5!=-1 && (a6==-1 && b6==-1)){
+document.getElementById("s6").src="o.jpeg";
+check[6]="s6";
+checko[6]="s6";z=0;}
+
+else if((a4==-1 && b4==-1) && a5!=-1 && a6!=-1){
+document.getElementById("s4").src="o.jpeg";
+check[4]="s4";
+checko[4]="s4";z=0;}
+
+else if(a4!=-1 && (a5==-1 && b5==-1) && a6!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(a7!=-1 && a8!=-1 && (a9==-1 && b9==-1)){
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a7==-1 && b7==-1) && a8!=-1 && a9!=-1){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+else if(a7!=-1 &&( a8==-1 && b8==-1) && a9!=-1){
+document.getElementById("s8").src="o.jpeg";
+check[8]="s8";
+checko[8]="s8";z=0;}
+
+else if(a1!=-1 && a4!=-1 && (a7==-1 && b7==-1)){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+else if((a1==-1 && b1==-1) && a4!=-1 && a7!=-1){
+document.getElementById("s7").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(a1!=-1 && (a4==-1 && b4==-1) && a7!=1){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+else if(a2!=-1 && a5!=-1 && (a8==-1 && b8==-1)){
+document.getElementById("s8").src="o.jpeg";
+check[8]="s8";
+checko[8]="s8";z=0;}
+
+else if((a2==-1 && b2==-1) && a5!=-1 && a8!=-1){
+document.getElementById("s2").src="o.jpeg";
+check[2]="s2";
+checko[2]="s2";z=0;}
+
+else if(a2!=-1 && (a5==-1 && b5==-1) && a8!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(a3!=-1 && a6!=-1 && (a9==-1 && b9==-1)){
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a3==-1 && b3==-1) && a6!=-1 && a9!=-1){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if(a3!=-1 && (a6==-1 && b6==-1) && a9!=-1){
+document.getElementById("s6").src="o.jpeg";
+check[6]="s6";
+checko[6]="s6";z=0;}
+
+else if(a1!=-1 && a5!=-1 && (a9==-1 && b9==-1)){
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a1==-1 && b1==-1) && a5!=-1 && a9!=-1){
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(a1!=-1 && (a5==-1 && b5==-1) && a9!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(a3!=-1 && a5!=-1 && (a7==-1 && b7==-1)){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+
+
+else if((a3==-1 && b3==-1) && a5!=-1 && a7!=-1){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if(a3!=-1 && (a5==-1 && b5==-1) && a7!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+
+else if(b1!=-1 && b2!=-1 && (b3==-1 && a3==-1)){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if((a1==-1 && b1==-1) && b2!=-1 && b3!=-1){
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(b1!=-1 && (a2==-1 && b2==-1) && b3!=-1){
+document.getElementById("s2").src="o.jpeg";
+alert("ko");
+check[2]="s2";
+checko[2]="s2";z=0;}
+
+else if(b4!=-1 && b5!=-1 && (b6==-1 && a6==-1)){
+document.getElementById("s6").src="o.jpeg";
+check[6]="s6";
+checko[6]="s6";z=0;}
+
+else if((a4==-1 && b4==-1) && b5!=-1 && b6!=-1){
+document.getElementById("s4").src="o.jpeg";
+check[4]="s4";
+checko[4]="s4";z=0;}
+
+else if(b4!=-1 && (a5==-1 && b5==-1) && b6!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(b7!=-1 && b8!=-1 && (b9==-1 && a9==-1)){
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a7==-1 && b7==-1) && b8!=-1 && b9!=-1){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+else if(b7!=-1 &&( b8==-1 && a8==-1) && b9!=-1){
+document.getElementById("s8").src="o.jpeg";
+check[8]="s8";
+checko[8]="s8";z=0;}
+
+else if(b1!=-1 && b4!=-1 && (a7==-1 && b7==-1)){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+else if((a1==-1 && b1==-1) && b4!=-1 && b7!=-1){
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(b1!=-1 && (b4==-1 && a4==-1) && a7!=-1){
+document.getElementById("s4").src="o.jpeg";
+check[4]="s4";
+checko[4]="s4";z=0;}
+
+else if(b2!=-1 && b5!=-1 && (a8==-1 && b8==-1)){
+document.getElementById("s8").src="o.jpeg";
+check[8]="s8";
+checko[8]="s8";z=0;}
+
+else if((a2==-1 && b2==-1) && b5!=-1 && b8!=-1){
+document.getElementById("s2").src="o.jpeg";
+check[2]="s2";
+checko[2]="s2";z=0;}
+
+else if(b2!=-1 && (a5==-1 && b5==-1) && b8!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(b3!=-1 && b6!=-1 && (a9==-1 && b9==-1)){
+alert("i");
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a3==-1 && b3==-1) && b6!=-1 && b9!=-1){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if(b3!=-1 && (a6==-1 && b6==-1) && b9!=-1){
+document.getElementById("s6").src="o.jpeg";
+check[6]="s6";
+checko[6]="s6";z=0;}
+
+else if(b1!=-1 && b5!=-1 && (a9==-1 && b9==-1)){
+document.getElementById("s9").src="o.jpeg";
+check[9]="s9";
+checko[9]="s9";z=0;}
+
+else if((a1==-1 && b1==-1) && b5!=-1 && b9!=-1){
+document.getElementById("s1").src="o.jpeg";
+check[1]="s1";
+checko[1]="s1";z=0;}
+
+else if(b1!=-1 && (a5==-1 && b5==-1) && b9!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+else if(b3!=-1 && b5!=-1 && (a7==-1 && b7==-1)){
+document.getElementById("s7").src="o.jpeg";
+check[7]="s7";
+checko[7]="s7";z=0;}
+
+
+
+else if((a3==-1 && b3==-1) && b5!=-1 && b7!=-1){
+document.getElementById("s3").src="o.jpeg";
+check[3]="s3";
+checko[3]="s3";z=0;}
+
+else if(b3!=-1 && (a5==-1 && b5==-1) && b7!=-1){
+document.getElementById("s5").src="o.jpeg";
+check[5]="s5";
+checko[5]="s5";z=0;}
+
+
+else{
+
+while(z!=0){
+if(a==9){a=a-1}
+else{a=a+1;}
+y="s"+a;
+if(check.indexOf(y)==-1){
+document.getElementById(y).src="o.jpeg";
+check[a]=y;
+checko[a]=y;
+
+z=0;}
+}
+}
+}
+
+if(a1!=-1 && a2!=-1 && a3!=-1)
+{w=1;}
+
+else if(a4!=-1 && a5!=-1 && a6!=-1)
+{w=1;}
+
+else if(a7!=-1 && a8!=-1 && a9!=-1)
+{w=1;}
+
+else if(a1!=-1 && a4!=-1 && a7!=-1)
+{w=1;}
+
+else if(a2!=-1 && a5!=-1 && a8!=-1)
+{w=1;}
+
+else if(a3!=-1 && a6!=-1 && a9!=-1)
+{w=1;}
+
+else if(a1!=-1 && a5!=-1 && a9!=-1)
+{w=1;}
+
+else if(a3!=-1 && a5!=-1 && a7!=-1)
+{w=1;}
+
+else if(b1!=-1 && b2!=-1 && b3!=-1)
+{wu=1;}
+
+else if(b4!=-1 && b5!=-1 && b6!=-1)
+{wu=1;}
+
+else if(b7!=-1 && b8!=-1 && b9!=-1)
+{wu=1;}
+
+else if(b1!=-1 && b4!=-1 && b7!=-1)
+{wu=1;}
+
+else if(b2!=-1 && b5!=-1 && b8!=-1)
+{wu=1;}
+
+else if(b3!=-1 && b6!=-1 && b9!=-1)
+{alert("joii");alert(checkx[9]);wu=1;}
+
+else if(b1!=-1 && b5!=-1 && b9!=-1)
+{wu=1;}
+
+else if(b3!=-1 && b5!=-1 && b7!=-1)
+{wu=1;}
+
+
+
+if(w==1){
+document.getElementById("play").innerHTML="<h4>"+"computer wins"+"</h4>";
+}
+else if(wu==1){
+document.getElementById("play").innerHTML="<h4>"+"you won"+"</h4>";
+}
+else if(dr==4){
+document.getElementById("play").innerHTML="<h4>"+"draw"+"</h4>";}
+i+=1;
+
+
+}
+</script>
+</body>
+</html>
